@@ -35,9 +35,10 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable().authorizeHttpRequests()
-                .requestMatchers("/auth", "/register/**","/v3/api-docs/**" , "/v3/api-docs**", "/swagger-ui**", "/swagger-ui/**").permitAll()
-                .and().authorizeHttpRequests().requestMatchers("/forecast").authenticated().and().sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                .requestMatchers("/auth", "/register/**", "/v3/api-docs/**", "/v3/api-docs**", "/swagger-ui**",
+                        "/swagger-ui/**")
+                .permitAll().and().authorizeHttpRequests().requestMatchers("/forecast").authenticated().and()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class).build();
     }

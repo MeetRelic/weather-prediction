@@ -66,7 +66,7 @@ public class WeatherPredictionController {
         }
     }
 
-    @PostMapping(value = "/auth" ,  produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/auth", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> authenticate(@RequestBody AuthRequest authRequest) {
         try {
             Authentication authentication = authenticationManager.authenticate(
@@ -81,7 +81,7 @@ public class WeatherPredictionController {
         return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
     }
 
-    @PostMapping(value = "/user" ,produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> authenticate(@RequestBody Users user) {
         Users userAdded = userRepository.addUser(user);
         if (Objects.isNull(userAdded)) {
