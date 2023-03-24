@@ -77,7 +77,6 @@ public class WeatherForecastServiceImpl implements WeatherForecastService {
                 if (currIndex > days) {
                     return weatherDataList;
                 }
-                // TODO Format this code structure
                 WeatherData weatherData = new WeatherData();
                 WeatherList.Main weatherMain = weather.getMain();
                 weatherData.setDate(currDate);
